@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://ccatjy54xj5e4"]
+
+[ext_resource type="Script" uid="uid://b8xo4pomq43hb" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+
+[sub_resource type="Theme" id="Theme_1vivr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auskg"]
+bg_color = Color(0.10747979, 0.107479714, 0.10747973, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+corner_detail = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n87rw"]
+content_margin_left = 20.0
+content_margin_top = 7.0
+content_margin_right = 20.0
+content_margin_bottom = 7.0
+bg_color = Color(0.31431612, 0.31431612, 0.31431603, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
+content_margin_left = 20.0
+content_margin_top = 7.0
+content_margin_right = 20.0
+content_margin_bottom = 7.0
+bg_color = Color(0.3137255, 0.3137255, 0.3137255, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
+bg_color = Color(0.25565878, 0.2556588, 0.25565875, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
+content_margin_left = 20.0
+content_margin_top = 7.0
+content_margin_right = 20.0
+content_margin_bottom = 7.0
+bg_color = Color(0.31431612, 0.31431612, 0.31431603, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 7.0
+
+[node name="PauseMenu" type="Control" unique_id=1810558672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n87rw")
+
+[node name="Panel" type="Panel" parent="." unique_id=1653025520]
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.97472614, 0.9972238)
+offset_transform_enabled = true
+mouse_filter = 2
+theme = SubResource("Theme_1vivr")
+theme_override_styles/panel = SubResource("StyleBoxFlat_auskg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=111247215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1632824324]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1893771600]
+z_index = 10
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Пауза"
+
+[node name="ResumeButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1548538568]
+z_index = 10
+custom_minimum_size = Vector2(430, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+offset_transform_enabled = true
+mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_n87rw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
+text = "Продолжить
+"
+
+[node name="SettingsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1349238309]
+z_index = 10
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+offset_transform_enabled = true
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_1vivr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
+text = "Настройки управления"
+
+[node name="CloseButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=924657000]
+z_index = 10
+custom_minimum_size = Vector2(430, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+mouse_default_cursor_shape = 2
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_1vivr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
+text = "Выйти
+"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=967220932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0030981, 1)
+mouse_filter = 2
+color = Color(0.13319641, 0.13319641, 0.13319638, 0.78039217)

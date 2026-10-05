@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 
 const SPEED = 3
-const JUMP = 5
+const JUMP = 5.2
 const GRAVITY = 14.0
 const SPRINT_SPEED = 4.5
 
@@ -32,13 +32,12 @@ func _ready() -> void:
 	stamina_bar.max_value = 100
 	stamina_bar.value = stamina
 
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotation_velocity = -event.relative.x * mouse_sensitivity * 3
 
 		camera_rotation_x += event.relative.y * mouse_sensitivity
-		camera_rotation_x = clamp(camera_rotation_x, -0.5, 0.5)
+		camera_rotation_x = clamp(camera_rotation_x, -0.8, 1)
 
 		camera_pivot.rotation.x = camera_rotation_x
 
