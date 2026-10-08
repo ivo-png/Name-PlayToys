@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://ccatjy54xj5e4"]
 
 [ext_resource type="Script" uid="uid://b8xo4pomq43hb" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="Script" uid="uid://bkdga5st37vwf" path="res://scenes/scroll_container.gd" id="2_myx47"]
+[ext_resource type="Script" uid="uid://cumphioeg7aup" path="res://scripts/key_buttonBACKWARDS.gd" id="4_5d2l8"]
+[ext_resource type="Script" uid="uid://de5kbo4lyfufn" path="res://scripts/key_buttonFORWARDS.gd" id="5_7l7mv"]
+[ext_resource type="Script" uid="uid://dou0hc4sdipbo" path="res://scripts/key_buttonLEFT.gd" id="5_v4r4p"]
+[ext_resource type="Script" uid="uid://bd28prtivcgj4" path="res://scripts/key_buttonRIGHT.gd" id="6_v4r4p"]
+[ext_resource type="Script" uid="uid://bcgg2wl4vgitu" path="res://scripts/key_buttonESC.gd" id="7_1s2dm"]
+[ext_resource type="Script" uid="uid://dqtr6q2lpvw8" path="res://scenes/key_buttonSPRINT.gd" id="8_88e76"]
 
 [sub_resource type="Theme" id="Theme_1vivr"]
 
@@ -68,6 +75,71 @@ expand_margin_top = 5.0
 expand_margin_right = 10.0
 expand_margin_bottom = 7.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myx47"]
+content_margin_left = 20.0
+content_margin_top = 7.0
+content_margin_right = 20.0
+content_margin_bottom = 7.0
+bg_color = Color(0.3137255, 0.3137255, 0.3137255, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="Theme" id="Theme_8vrlf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5gy4"]
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l7mv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88e76"]
+bg_color = Color(0.23031503, 0.23031491, 0.23031494, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="Theme" id="Theme_88e76"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s2dm"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.32915837, 0.3291584, 0.32915837, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knqa7"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_nwtmx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7l7mv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4r4p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1s2dm"]
+
+[sub_resource type="GDScript" id="GDScript_knqa7"]
+
 [node name="PauseMenu" type="Control" unique_id=1810558672]
 layout_mode = 3
 anchors_preset = 15
@@ -78,20 +150,21 @@ grow_vertical = 2
 script = ExtResource("1_n87rw")
 
 [node name="Panel" type="Panel" parent="." unique_id=1653025520]
+visible = false
 z_index = 10
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -200.0
-offset_right = 250.0
-offset_bottom = 200.0
+anchors_preset = -1
+anchor_left = 0.35069448
+anchor_top = 0.2685185
+anchor_right = 0.6804871
+anchor_bottom = 0.76796013
+offset_left = 38.99997
+offset_top = 21.000015
+offset_right = 149.4729
+offset_bottom = 99.4783
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.97472614, 0.9972238)
+scale = Vector2(0.62935483, 0.6331176)
 offset_transform_enabled = true
 mouse_filter = 2
 theme = SubResource("Theme_1vivr")
@@ -121,56 +194,439 @@ text = "Пауза"
 
 [node name="ResumeButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1548538568]
 z_index = 10
-custom_minimum_size = Vector2(430, 0)
+custom_minimum_size = Vector2(410, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 offset_transform_enabled = true
 mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 10
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_n87rw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5d2l8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
 text = "Продолжить
 "
 
-[node name="SettingsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1349238309]
+[node name="SettingsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=924657000]
 z_index = 10
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(410, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
 offset_transform_enabled = true
-focus_mode = 0
 mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 10
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_myx47")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
-text = "Настройки управления"
+text = "Настройки управления
+"
 
-[node name="CloseButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=924657000]
+[node name="CloseButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=507274232]
 z_index = 10
-custom_minimum_size = Vector2(430, 0)
+custom_minimum_size = Vector2(410, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 offset_transform_enabled = true
 mouse_default_cursor_shape = 2
 theme_override_constants/h_separation = 10
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_1vivr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_myx47")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8vrlf")
 text = "Выйти
 "
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=967220932]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0030981, 1)
+mouse_filter = 2
+color = Color(0.13319641, 0.13319641, 0.13319638, 0.78039217)
+
+[node name="ControlsPanel" type="Control" parent="." unique_id=1103320260]
+z_index = 15
+custom_minimum_size = Vector2(450, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.5
+offset_top = -150.0
+offset_right = 286.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8vrlf")
+
+[node name="Panel" type="Panel" parent="ControlsPanel" unique_id=1650805675]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.0030981, 1)
-mouse_filter = 2
-color = Color(0.13319641, 0.13319641, 0.13319638, 0.78039217)
+theme_override_styles/panel = SubResource("StyleBoxFlat_v5gy4")
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel" unique_id=83244844]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_constants/margin_top = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ControlsPanel/Panel/MarginContainer" unique_id=1268090291]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_7l7mv")
+horizontal_scroll_mode = 0
+script = ExtResource("2_myx47")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer" unique_id=537552291]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1224342039]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_88e76")
+
+[node name="MarginContainer3" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/Panel" unique_id=1890520694]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer3" unique_id=1082707209]
+layout_mode = 2
+theme = SubResource("Theme_88e76")
+alignment = 1
+
+[node name="BackButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer3/HBoxContainer" unique_id=1010901305]
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.9, 0.9)
+mouse_default_cursor_shape = 2
+theme_override_constants/outline_size = -1
+theme_override_constants/h_separation = 1
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_1s2dm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1s2dm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_knqa7")
+text = "Назад"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer3/HBoxContainer" unique_id=864929064]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_right = 0
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/Panel/MarginContainer3/HBoxContainer/MarginContainer" unique_id=518921578]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Настройки управления"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=659377295]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+
+[node name="Container" type="VBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer" unique_id=712570678]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = SubResource("Theme_nwtmx")
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container" unique_id=81267564]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer" unique_id=216063241]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer" unique_id=454107555]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Движение"
+horizontal_alignment = 1
+
+[node name="ForwardRow" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer" unique_id=2090434889]
+layout_mode = 2
+accessibility_region = true
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/ForwardRow" unique_id=369630455]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 18
+text = "Ходьба вперед:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/ForwardRow" unique_id=584933085]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_bottom = 0
+
+[node name="KeyButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/ForwardRow/MarginContainer" unique_id=602111539]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[ w ]"
+script = ExtResource("5_7l7mv")
+
+[node name="BackwardRow" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer" unique_id=1933776057]
+layout_mode = 2
+accessibility_region = true
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/BackwardRow" unique_id=1600228136]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 18
+text = "Ходьба назад:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/BackwardRow" unique_id=196070147]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_bottom = 0
+
+[node name="KeyButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/BackwardRow/MarginContainer" unique_id=1694130927]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[  ]"
+script = ExtResource("4_5d2l8")
+
+[node name="LeftRow" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer" unique_id=1236338604]
+layout_mode = 2
+accessibility_region = true
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/LeftRow" unique_id=1027434433]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 18
+text = "Ходьба влево"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/LeftRow" unique_id=514061959]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_bottom = 0
+
+[node name="KeyButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/LeftRow/MarginContainer" unique_id=932536603]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[  ]"
+script = ExtResource("5_v4r4p")
+
+[node name="RightRow" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer" unique_id=641669579]
+layout_mode = 2
+accessibility_region = true
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/RightRow" unique_id=1276560382]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 18
+text = "Ходьба вправо:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/RightRow" unique_id=836449973]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_bottom = 0
+
+[node name="KeyButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/RightRow/MarginContainer" unique_id=935860899]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[  ]"
+script = ExtResource("6_v4r4p")
+
+[node name="EscRow" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer" unique_id=571630653]
+layout_mode = 2
+accessibility_region = true
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/EscRow" unique_id=1791106175]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 18
+text = "Escape"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/EscRow" unique_id=652751296]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_bottom = 0
+
+[node name="KeyButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/EscRow/MarginContainer" unique_id=58898418]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[  ]"
+script = ExtResource("7_1s2dm")
+
+[node name="SprintRow" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer" unique_id=62508152]
+layout_mode = 2
+accessibility_region = true
+script = SubResource("GDScript_knqa7")
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/SprintRow" unique_id=1994077263]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 18
+text = "Бег"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/SprintRow" unique_id=1651361789]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_bottom = 0
+
+[node name="KeyButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/Container/MarginContainer/VBoxContainer/SprintRow/MarginContainer" unique_id=144894715]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[  ]"
+script = ExtResource("8_88e76")
+
+[node name="MarginContainer2" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=925630964]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2" unique_id=1915413701]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=884961198]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Общие функции"
+horizontal_alignment = 1
+
+[node name="InventoryRow" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=328823440]
+layout_mode = 2
+accessibility_region = true
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/InventoryRow" unique_id=1134557011]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 18
+text = "Инвентарь:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/InventoryRow" unique_id=1528962995]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_bottom = 0
+
+[node name="KeyButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/InventoryRow/MarginContainer" unique_id=684771389]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[  ]"
+script = ExtResource("5_7l7mv")
+
+[node name="MapRow" type="HBoxContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1799222403]
+layout_mode = 2
+accessibility_region = true
+
+[node name="Label" type="Label" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/MapRow" unique_id=136212920]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 18
+text = "Карта:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/MapRow" unique_id=1712027463]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -7
+theme_override_constants/margin_bottom = 0
+
+[node name="KeyButton" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/MapRow/MarginContainer" unique_id=1439930000]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[  ]"
+script = ExtResource("5_7l7mv")
+
+[node name="KeyButton2" type="Button" parent="ControlsPanel/Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/MapRow/MarginContainer" unique_id=2123028562]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+text = "[  ]"
+script = ExtResource("5_7l7mv")

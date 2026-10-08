@@ -4,15 +4,15 @@ extends CharacterBody3D
 
 const SPEED = 3
 const JUMP = 5.2
-const GRAVITY = 14.0
+const GRAVITY = 15.0
 const SPRINT_SPEED = 4.5
 
 const MAX_STAMINA = 100.0
 const STAMINA_DRAIN = 20.0
 const STAMINA_REGEN = 15.0
 
-const BOB_SPEED = 12.0
-const BOB_AMOUNT = 0.05
+const BOB_SPEED = 13.0
+const BOB_AMOUNT = 0.03
 
 @onready var camera_pivot = $CollisionShape3D/CameraPivot
 @onready var stamina_bar = $CanvasLayer/StaminaBar
