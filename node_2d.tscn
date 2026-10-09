@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://uj6i4xrfw185"]
+
+[ext_resource type="Texture2D" uid="uid://dmb0f8x6025dw" path="res://logo_AFTERTRACE (1).png" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://dlgshmyyg8djs" path="res://decor (1).png" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://dhppresol1gfe" path="res://btn_new_game_normal (1).png" id="3_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://b7kexxgqlaafj" path="res://btn_new_game_pressed (1).png" id="4_kdubu"]
+[ext_resource type="Texture2D" uid="uid://ddi7yggd5q6o6" path="res://btn_new_game_hover (1).png" id="5_d21ai"]
+[ext_resource type="Script" uid="uid://dhwrg783apajw" path="res://texture_button.gd" id="6_rj586"]
+[ext_resource type="Texture2D" uid="uid://b8hbfcl1840ak" path="res://btn_continue_normal.png" id="7_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://c8ukcbxsgtvfh" path="res://btn_continue_hover.png" id="8_ir8iy"]
+[ext_resource type="Script" uid="uid://daos1mhilii0i" path="res://texture_button_2.gd" id="9_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://cue7pthelbglq" path="res://btn_settings_normal.png" id="10_0h7mo"]
+[ext_resource type="Texture2D" uid="uid://bowhywvoxc0kh" path="res://btn_settings_pressed.png" id="11_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://l1sukiu22k1d" path="res://btn_settings_hover.png" id="12_d2bti"]
+[ext_resource type="Script" uid="uid://uyfy07rru435" path="res://texture_button_3.gd" id="13_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://ummhpa811f5e" path="res://btn_exit_normal.png" id="14_flf07"]
+[ext_resource type="Texture2D" uid="uid://cd1kyju3ca4h0" path="res://btn_exit_pressed.png" id="15_k73cj"]
+[ext_resource type="Texture2D" uid="uid://c8hkxhylguj0h" path="res://btn_exit_hover.png" id="16_rjqkl"]
+[ext_resource type="Script" uid="uid://dwikanj2f7lsg" path="res://texture_button_4.gd" id="17_fs4d3"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_y32ns"]
+file = "res://crack_background.ogv"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hqns4"]
+load_path = "res://.godot/imported/btn_continue_pressed.png-fdf962af514bccd15bba8529aa9045bf.ctex"
+
+[node name="Node2D" type="Node2D" unique_id=1982151445]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1819629024]
+offset_right = 1920.0
+offset_bottom = 1080.0
+offset_transform_enabled = true
+stream = SubResource("VideoStreamTheora_y32ns")
+autoplay = true
+expand = true
+loop = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1234353386]
+offset_left = 648.0
+offset_top = 246.0
+offset_right = 1272.0
+offset_bottom = 312.0
+offset_transform_enabled = true
+texture = ExtResource("1_wtcfe")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=255691880]
+offset_left = 850.0
+offset_top = 348.0
+offset_right = 1070.0
+offset_bottom = 398.0
+texture = ExtResource("2_0e48y")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=459110241]
+offset_left = 685.0
+offset_top = 415.0
+offset_right = 1245.0
+offset_bottom = 511.0
+texture_normal = ExtResource("3_q6r6c")
+texture_pressed = ExtResource("4_kdubu")
+texture_hover = ExtResource("5_d21ai")
+script = ExtResource("6_rj586")
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=1247637136]
+offset_left = 685.0
+offset_top = 512.0
+offset_right = 1245.0
+offset_bottom = 608.0
+texture_normal = ExtResource("7_4d7sh")
+texture_pressed = SubResource("CompressedTexture2D_hqns4")
+texture_hover = ExtResource("8_ir8iy")
+script = ExtResource("9_4d7sh")
+
+[node name="TextureButton3" type="TextureButton" parent="." unique_id=334398835]
+offset_left = 685.0
+offset_top = 615.0
+offset_right = 1245.0
+offset_bottom = 711.0
+texture_normal = ExtResource("10_0h7mo")
+texture_pressed = ExtResource("11_nr8wp")
+texture_hover = ExtResource("12_d2bti")
+script = ExtResource("13_ta5nu")
+
+[node name="TextureButton4" type="TextureButton" parent="." unique_id=1161252063]
+offset_left = 685.0
+offset_top = 715.0
+offset_right = 1245.0
+offset_bottom = 811.0
+texture_normal = ExtResource("14_flf07")
+texture_pressed = ExtResource("15_k73cj")
+texture_hover = ExtResource("16_rjqkl")
+script = ExtResource("17_fs4d3")

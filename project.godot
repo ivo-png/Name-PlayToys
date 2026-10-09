@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="PlayToys original"
-run/main_scene="uid://bj7tudlv3361a"
+run/main_scene="uid://uj6i4xrfw185"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://images/icon.svg"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/hdr/request_hdr_output=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
