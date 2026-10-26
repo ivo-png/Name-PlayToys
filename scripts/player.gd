@@ -33,8 +33,19 @@ func _ready() -> void:
 	camera_fov = GameplaySettings.camera_fov
 	camera.fov = camera_fov
 
+	if GameplaySettings.has_saved_player_state:
+		global_position = GameplaySettings.saved_player_position
+		global_rotation = GameplaySettings.saved_player_rotation
+
+		camera_pivot.position = GameplaySettings.saved_camera_position
+		camera_pivot.rotation = GameplaySettings.saved_camera_rotation
+
+		camera_rotation_x = camera_pivot.rotation.x
+
+		GameplaySettings.has_saved_player_state = false
+
 	if stamina_bar and stamina_bar.has_method("set_ratio"):
-		stamina_bar.set_ratio(1.0, false)
+		stamina_bar.set_ratio(stamina / MAX_STAMINA, exhausted)
 
 
 func _input(event: InputEvent) -> void:

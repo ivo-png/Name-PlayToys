@@ -93,7 +93,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="SettingsPage" type="Control" unique_id=1858046180 node_paths=PackedStringArray("sensitivity_slider", "fov_slider")]
-z_index = 30
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -188,10 +188,9 @@ theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_v5gy4")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_3ywlk")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_flf07")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_wtuay")
-current_tab = 3
+current_tab = 0
 
 [node name="Управление" type="ScrollContainer" parent="ColorRect/VBoxContainer/GlobalMargin/Pages" unique_id=613783465]
-visible = false
 custom_minimum_size = Vector2(1900, 0)
 layout_mode = 2
 metadata/_tab_index = 0
@@ -731,6 +730,7 @@ theme_override_font_sizes/font_size = 30
 text = "Тут  будут настройки графики"
 
 [node name="Геймплей" type="VBoxContainer" parent="ColorRect/VBoxContainer/GlobalMargin/Pages" unique_id=1751130963]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 

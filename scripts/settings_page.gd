@@ -29,14 +29,19 @@ func _apply_settings_to_player() -> void:
 	player.set_mouse_sensitivity(GameplaySettings.mouse_sensitivity * 0.00005)
 	player.set_camera_fov(GameplaySettings.camera_fov)
 
-
 func _on_sensitivity_changed(value: float) -> void:
 	GameplaySettings.mouse_sensitivity = value
+
 	sensitivity_value.text = "Чувствительность мыши: " + str(roundi(value)) + "%"
+
 	_apply_settings_to_player()
+	GameplaySettings.save_settings()
 
 
 func _on_fov_changed(value: float) -> void:
 	GameplaySettings.camera_fov = value
+
 	fov_value.text = "Дальность обзора: " + str(roundi(value)) + "%"
+
 	_apply_settings_to_player()
+	GameplaySettings.save_settings()

@@ -36,5 +36,6 @@ func _on_button_up() -> void:
 		tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.05).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		
 func _on_pressed() -> void:
+	GameplaySettings.previous_scene = get_tree().current_scene.scene_file_path
 	get_tree().change_scene_to_file("res://scenes/settings_page.tscn")
 			
