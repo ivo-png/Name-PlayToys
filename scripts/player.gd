@@ -13,7 +13,7 @@ const BOB_SPEED = 13.0
 const BOB_AMOUNT = 0.03
 
 @onready var camera_pivot = $CollisionShape3D/CameraPivot
-@onready var stamina_bar = $CanvasLayer/StaminaBar
+@onready var stamina_bar = get_node_or_null("CanvasLayer/StaminaBar")
 @onready var camera = $CollisionShape3D/CameraPivot/Camera3D
 
 var mouse_sensitivity = 0.001
@@ -33,7 +33,11 @@ func _ready() -> void:
 	camera_fov = GameplaySettings.camera_fov
 	camera.fov = camera_fov
 
-	if stamina_bar and stamina_bar.has_method("set_ratio"):
+	if stamina_bar == null:
+		push_error("Player: не найден узел CanvasLayer/StaminaBar")
+	elif stamina_bar.has_method("set_ratio") == false:
+		push_error("Player: на StaminaBar не прикреплён stamina_bar.gd")
+	else:
 		stamina_bar.set_ratio(1.0, false)
 
 
@@ -45,6 +49,12 @@ func _input(event: InputEvent) -> void:
 		camera_rotation_x = clamp(camera_rotation_x, -0.8, 1)
 
 		camera_pivot.rotation.x = camera_rotation_x
+
+
+func _bar_ok() -> bool:
+	if stamina_bar == null:
+		return false
+	return stamina_bar.has_method("set_ratio")
 
 
 func _physics_process(delta: float) -> void:
@@ -76,11 +86,20 @@ func _physics_process(delta: float) -> void:
 		bob_time = 0.0
 		camera_pivot.position.y = 0.0
 
-	if Input.is_action_pressed("sprint") and is_moving and stamina > 0 and not exhausted:
+	var wants_sprint = Input.is_action_pressed("sprint") and is_moving and stamina > 0 and exhausted == false
+
+	var bar_ready = true
+	if _bar_ok():
+		bar_ready = stamina_bar.is_ready()
+
+	if wants_sprint:
 		current_speed = SPRINT_SPEED
-		stamina -= STAMINA_DRAIN * delta
-		if stamina <= 0.0:
-			exhausted = true
+		if _bar_ok():
+			stamina_bar.show_bar()
+		if bar_ready:
+			stamina -= STAMINA_DRAIN * delta
+			if stamina <= 0.0:
+				exhausted = true
 	else:
 		stamina += STAMINA_REGEN * delta
 		if exhausted and stamina >= MAX_STAMINA:
@@ -88,7 +107,7 @@ func _physics_process(delta: float) -> void:
 
 	stamina = clamp(stamina, 0.0, MAX_STAMINA)
 
-	if stamina_bar and stamina_bar.has_method("set_ratio"):
+	if _bar_ok():
 		stamina_bar.set_ratio(stamina / MAX_STAMINA, exhausted)
 
 	moving_vec *= current_speed
