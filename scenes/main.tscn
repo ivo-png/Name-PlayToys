@@ -580,6 +580,7 @@
 [ext_resource type="Texture2D" uid="uid://cb6pxdhl8ri8x" path="res://images/stamina/stamina_0573.png" id="576_i8rn2"]
 [ext_resource type="Texture2D" uid="uid://bmhyj47gdkmll" path="res://images/stamina/stamina_0574.png" id="577_4reg6"]
 [ext_resource type="Texture2D" uid="uid://735byk4ssavv" path="res://images/stamina/stamina_0575.png" id="578_fshqk"]
+[ext_resource type="Texture2D" uid="uid://2qbqoxqldq5g" path="res://images/icons/aim.png" id="580_cyton"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_auskg"]
 
@@ -2332,17 +2333,6 @@ animations = [{
 "speed": 60.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.42749298, 0.4274931, 0.42749283, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
 [node name="Main" type="Node3D" unique_id=642882176]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3757439, 0)
 
@@ -2490,12 +2480,29 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="Player/CanvasLayer/CenterContainer" unique_id=1916607056]
+[node name="Crosshair" type="Panel" parent="Player/CanvasLayer/CenterContainer" unique_id=1916607056]
 custom_minimum_size = Vector2(9, 9)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1vivr")
+
+[node name="TextureRect" type="TextureRect" parent="Player/CanvasLayer/CenterContainer/Crosshair" unique_id=743926671]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.4375
+offset_top = -103.5625
+offset_right = 122.4375
+offset_bottom = 103.5625
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("580_cyton")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="PauseMenu" parent="Player/CanvasLayer" unique_id=1810558672 instance=ExtResource("3_sugp2")]
+visible = false
 z_index = 10
 offset_left = 4.0
 offset_top = -1.0

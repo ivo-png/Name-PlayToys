@@ -14,9 +14,20 @@ var saved_camera_rotation: Vector3 = Vector3.ZERO
 const SETTINGS_PATH: String = "user://settings.cfg"
 const PLAYER_SAVE_PATH: String = "user://player_save.cfg"
 
+const KEY_BINDING_ACTIONS = [
+	"move_forwards",
+	"move_backwards",
+	"move_right",
+	"move_left",
+	"jump",
+	"sprint",
+	"esc",
+]
+
 func _ready() -> void:
 	load_settings()
 	load_player_state()
+	load_key_bindings()
 	
 
 func save_settings() -> void:
@@ -114,5 +125,41 @@ func load_player_state() -> void:
 
 	has_saved_player_state = true
 
-
+func save_key_bindings() -> void:
+	var config = ConfigFile.new()
 	
+	config.load(SETTINGS_PATH)
+
+	for action in KEY_BINDING_ACTIONS:
+		var events = InputMap.action_get_events(action)
+
+		for event in events:
+			if event is InputEventKey:
+				config.set_value("controls", action, event.physical_keycode)
+				break
+
+	var error = config.save(SETTINGS_PATH)
+
+	if error != OK:
+		push_error("Не удалось сохранить клавиши управления: " + str(error))
+
+
+func load_key_bindings() -> void:
+	var config = ConfigFile.new()
+
+	var error = config.load(SETTINGS_PATH)
+
+	if error != OK:
+		return
+
+	for action in KEY_BINDING_ACTIONS:
+		if not config.has_section_key("controls", action):
+			continue
+
+		var key_code = config.get_value("controls", action)
+
+		var new_key = InputEventKey.new()
+		new_key.physical_keycode = key_code
+
+		InputMap.action_erase_events(action)
+		InputMap.action_add_event(action, new_key)

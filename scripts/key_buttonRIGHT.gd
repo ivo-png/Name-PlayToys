@@ -57,6 +57,7 @@ func _input(event: InputEvent) -> void:
 		
 		InputMap.action_erase_events(action_name)
 		InputMap.action_add_event(action_name, new_key)
+		GameplaySettings.save_key_bindings()
 		
 		text = "[ " + event.as_text_physical_keycode() + " ]"
 		wainting_for_key = false
